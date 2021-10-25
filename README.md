@@ -17,7 +17,6 @@ Allows to unpack and repack AMLogic Android images on Linux systems without usin
 # Dependencies
 * `zlib1g-dev` for `simg2img` and `img2simg`
 * `libblkid-dev` for `abootimg` (unpacking and repacking boot image)
-* the `i386` packages if needed (for the logo unpacking / repacking binary)
 
 # How to use it
 * Clone or download this repository
@@ -47,9 +46,6 @@ Allows to unpack and repack AMLogic Android images on Linux systems without usin
 * Additionnaly, you can use `./bin/flash` to flash the image to a device through USB (you will need the udev rule, see https://github.com/Stane1983/aml-linux-usb-burn)
     * The device type (`gxl`) is hardcoded into the flashing script, edit it if you're not using S905, S905X or S919
 * Done !
-
-# Troubleshooting
-* If you have a `file not found` error when trying to unpack and repack the logo partition, install the `i386` libraries by following the accepted answer of this post : https://unix.stackexchange.com/questions/13391/getting-not-found-message-when-running-a-32-bit-binary-on-a-64-bit-system
 
 # Credits
 

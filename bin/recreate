@@ -4,13 +4,24 @@ if [ -e output/image/system.img ]
 then
         sync
 
-        echo "Repacking logo..."
-        rm -f output/image/logo.PARTITION
-        bin/logo_img_packer -r output/logo output/image/logo.PARTITION
+        if [ -z "$(ls -A output/logo)" ]; then
+            echo "Repacking logo: not found, skipping"
+        else
+            echo "Repacking logo..."
+            rm -f output/image/logo.PARTITION
+            bin/logo_img_packer -r output/logo output/image/logo.PARTITION
+        fi
 
         echo "Converting back system.img to system.PARTITION..."
         rm -f output/image/system.PARTITION
         bin/img2simg output/image/system.img output/image/system.PARTITION
+
+        if [ -e output/image/data.img ]
+        then
+            echo "Converting back data.img to data.PARTITION..."
+            rm -f output/image/data.PARTITION
+            bin/img2simg output/image/data.img output/image/data.PARTITION
+        fi
 
         echo "Repacking boot..."
         rm -f output/image/boot.PARTITION

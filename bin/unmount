@@ -3,5 +3,6 @@
 echo "Unmounting system image..."
 sync
 sudo umount output/system
+sudo umount output/data
 
 echo "Done"

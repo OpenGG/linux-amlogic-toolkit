@@ -3,9 +3,13 @@
 echo "Unmounting previous image..."
 sync
 sudo umount output/system
+sudo umount output/data
 
 echo "Remounting system image..."
 sudo mount -t ext4 -o loop,rw output/image/system.img output/system
+
+echo "Remounting data image..."
+sudo mount -t ext4 -o loop,rw output/image/data.img output/data
 
 echo "Done"
 

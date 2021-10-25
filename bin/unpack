@@ -8,6 +8,7 @@ then
 	then
             echo "Cleaning up..."
             sudo umount output/system
+            sudo umount output/data
             rm -rf output
             mkdir -p output/system
             mkdir -p output/data
@@ -24,7 +25,7 @@ then
             echo "Mounting system image..."
             sudo mount -t ext4 -o loop,rw output/image/system.img output/system
 
-             echo "Converting data.PARTITION to system.img..."
+             echo "Converting data.PARTITION to data.img..."
             bin/simg2img output/image/data.PARTITION output/image/data.img
 
             echo "Mounting data image..."

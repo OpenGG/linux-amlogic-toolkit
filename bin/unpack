@@ -29,10 +29,10 @@ then
             then
                 echo "Converting data.PARTITION to data.img..."
                 bin/simg2img output/image/data.PARTITION output/image/data.img
-            fi
 
-            echo "Mounting data image..."
-            sudo mount -t ext4 -o loop,rw output/image/data.img output/data
+                echo "Mounting data image..."
+                sudo mount -t ext4 -o loop,rw output/image/data.img output/data
+            fi
 
             echo "Unpacking logo..."
             bin/logo_img_packer -d output/image/logo.PARTITION output/logo
